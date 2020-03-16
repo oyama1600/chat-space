@@ -22,4 +22,11 @@
       %p.message__text thank you
 
 
-  .chat-main__form
+  .form
+    %form{ class:'new_message', id:'new_message', enctype:'multipart/form-data', action:'#', accept:{charest:'UTF-8'}, method:'post'}
+      .input-box
+        %input{ placeholder:'type a message', class:'input-box__text', type:'text', name:'message[content]', id:'message_content'}
+        %label{ class:'input-box__image', for:'message_image'}
+          %i{ class:'far fa-image'}
+          %input{ class:'input-box__image__file', type:'file', name:'message[image]', id:'message_image'}
+      %input{ type:'submit', name:'commit', value:'Send', class:'submit-btn', data:{disable:{ with:'Send'}}}
