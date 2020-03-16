@@ -9,5 +9,17 @@
         test 
     =link_to "#" do
       .main-header__edit-btn Edit
-  .chat-main__message
+  .messages
+    %div{ class:'message', data:{message_id:'#'}}
+      .message__upper-info
+        %p.message__upper-info__talker test
+        %p.message__upper-info__date 2020/3/16(mon) 17:40:00
+      %p.message__text welcome to JAPAN
+    %div{ class:'message', data:{message_id:'#'}}
+      .message__upper-info
+        %p.message__upper-info__talker test
+        %p.message__upper-info__date 2020/3/16(mon) 17:40:40
+      %p.message__text thank you
+
+
   .chat-main__form
