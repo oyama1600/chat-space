@@ -1,4 +1,13 @@
 .chat-main
-  .chat-main__group-info
+  .main-header
+    .main-header__left-box
+      %h2{ class:'main-header__left-box__current-group',data:{group_id:'#'}}
+        takeda
+      %ul.main-header__left-box__member-list
+        Member:
+        %li.main-header__left-box__member-list__member
+        test 
+    =link_to "#" do
+      .main-header__edit-btn Edit
   .chat-main__message
   .chat-main__form
