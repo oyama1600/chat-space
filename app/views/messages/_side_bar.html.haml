@@ -12,9 +12,10 @@
 
 
   .groups
-    =link_to "#", class: "group" do
-      %p.group__group-name takeda
-      %p.group__latest-message おはよう
-    =link_to "#", class: "group" do
-      %p.group__group-name tom
-      %p.group__latest-message こんにちは
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
