@@ -10,16 +10,18 @@
     =link_to "#" do
       .main-header__edit-btn Edit
   .messages
-    %div{ class:'message', data:{message_id:'#'}}
+    = render @messages
+    .message
       .message__upper-info
-        %p.message__upper-info__talker test
-        %p.message__upper-info__date 2020/3/16(mon) 17:40:00
-      %p.message__text welcome to JAPAN
-    %div{ class:'message', data:{message_id:'#'}}
-      .message__upper-info
-        %p.message__upper-info__talker test
-        %p.message__upper-info__date 2020/3/16(mon) 17:40:40
-      %p.message__text thank you
+        .message__upper-info__talker
+          = message.user.name
+        .message__upper-info__date
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      .message__text
+        - if message.content.present?
+          %p.message__text__content
+            = message.content
+        = image_tag message.image.url, class: 'message__text__image' if message.image.present?
 
 
   .form
