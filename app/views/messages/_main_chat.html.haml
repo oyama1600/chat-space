@@ -11,24 +11,23 @@
       .main-header__edit-btn Edit
   .messages
     = render @messages
-    .message
-      .message__upper-info
-        .message__upper-info__talker
-          = message.user.name
-        .message__upper-info__date
-          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-      .message__text
-        - if message.content.present?
-          %p.message__text__content
-            = message.content
-        = image_tag message.image.url, class: 'message__text__image' if message.image.present?
+    
 
+
+  -# .form
+  -#   = form_for [@group, @message] do |f|
+  -#     = f.text_field :content, class: 'new_message', placeholder: 'type a message'
+  -#     .input-box
+  -#       = f.label :image, class: 'input-box__image' do
+  -#         = icon('far', 'image', class: 'icon')
+  -#         = f.file_field :image, class: 'hidden'
+  -#     = f.submit 'Send', class: 'submit-btn'
 
   .form
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'new__message', placeholder: 'type a message'
-      .input-box
-        = f.label :image, class: 'input-box__image' do
-          = icon('fas', 'image', class: 'icon')
+      = f.text_field :content, class: 'form__text', placeholder: 'type a message'
+      .form_mask
+        = f.label :image, class: 'form__image' do
+          = icon('far', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'submit-btn'
